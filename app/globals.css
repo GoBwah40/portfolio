@@ -1775,15 +1775,6 @@ body {
 [data-da="brutal"] .about-photo {
   padding: 0;
 }
-.about-photo-mark {
-  width: 64px;
-  height: 64px;
-  color: var(--fg);
-}
-.about-photo-note {
-  font-family: var(--f-mono);
-  font-size: 0.75rem;
-}
 .about-text {
   min-width: 0;
 }
@@ -1884,10 +1875,7 @@ body {
   border-radius: 0;
   background: var(--surface);
 }
-[data-da="japon"] .about-photo-mark {
-  color: var(--accent);
-}
-[data-da="japon"] .about-lead {
+[data-da="japon"] [data-da="japon"] .about-lead {
   font-weight: 600;
   letter-spacing: 0.01em;
   line-height: 1.7;
@@ -1935,10 +1923,7 @@ body {
   box-shadow: 8px 8px 0 var(--line);
   transform: rotate(-2deg);
 }
-[data-da="brutal"] .about-photo-mark {
-  color: var(--ink);
-}
-[data-da="brutal"] .about-text p {
+[data-da="brutal"] [data-da="brutal"] .about-text p {
   color: var(--fg);
   font-weight: 500;
 }
