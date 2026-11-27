@@ -145,6 +145,7 @@ export function ThemeSwitcher() {
         className="switcher-toggle"
         aria-expanded={open}
         aria-controls={panelId}
+        aria-label="Changer de style"
         onClick={toggle}
       >
         <svg
@@ -161,7 +162,8 @@ export function ThemeSwitcher() {
           <circle cx="12" cy="7.5" r="1" />
           <circle cx="16.5" cy="10.5" r="1" />
         </svg>
-        Changer de style
+        {/* Masqué sur petit écran : le bouton devient une icône ronde, aria-label garde son nom. */}
+        <span className="switcher-label">Changer de style</span>
       </button>
     </div>
   );
