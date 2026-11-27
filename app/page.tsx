@@ -130,9 +130,14 @@ export default function Home() {
             <span className="jp-sub">Présentation</span>
           </h2>
           <div className="about-body">
-            <div className="about-photo" aria-hidden>
-              <BrandMark className="about-photo-mark" />
-              <span className="about-photo-note">Ta photo ici</span>
+            <div className="about-photo">
+              <Image
+                src="/about/matthias.jpg"
+                alt={profile.name}
+                width={400}
+                height={500}
+                sizes="13rem"
+              />
             </div>
             <p className="about-lead">{about.paragraphs[0]}</p>
             <div className="about-text">
