@@ -134,8 +134,9 @@ export default function Home() {
               <BrandMark className="about-photo-mark" />
               <span className="about-photo-note">Ta photo ici</span>
             </div>
+            <p className="about-lead">{about.paragraphs[0]}</p>
             <div className="about-text">
-              {about.paragraphs.map((p) => (
+              {about.paragraphs.slice(1).map((p) => (
                 <p key={p}>{p}</p>
               ))}
             </div>

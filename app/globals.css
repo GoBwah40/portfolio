@@ -1730,7 +1730,10 @@ body {
 @media (min-width: 768px) {
   .about-body {
     grid-template-columns: 13rem minmax(0, 1fr);
-    align-items: start;
+    align-items: center;
+  }
+  .about-text {
+    grid-column: 1 / -1;
   }
   .about-more {
     grid-column: 1 / -1;
@@ -1769,9 +1772,16 @@ body {
 .about-text p + p {
   margin-top: 1rem;
 }
-.about-text p:first-child {
+/* Phrase d'accroche, à côté de la photo. */
+.about-lead {
+  font-family: var(--f-display);
+  font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  font-weight: 500;
   color: var(--fg);
-  font-size: 1.125rem;
+  max-width: 34ch;
+  text-wrap: balance;
 }
 .about-facts {
   display: grid;
@@ -1854,10 +1864,10 @@ body {
 [data-da="japon"] .about-photo-mark {
   color: var(--accent);
 }
-[data-da="japon"] .about-text p:first-child {
-  font-family: var(--f-display);
-  font-size: 1.375rem;
-  line-height: 1.6;
+[data-da="japon"] .about-lead {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
 }
 [data-da="japon"] .about-facts dt {
   font-family: var(--f-body);
@@ -1909,9 +1919,9 @@ body {
   color: var(--fg);
   font-weight: 500;
 }
-[data-da="brutal"] .about-text p:first-child {
-  font-size: 1.25rem;
-  font-weight: 700;
+[data-da="brutal"] .about-lead {
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 [data-da="brutal"] .about-facts div {
   border: 3px solid var(--line);
