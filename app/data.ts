@@ -41,7 +41,9 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "gaijinjob",
-    kanji: "一", color: "sky", sticker: "★ projet phare",
+    kanji: "一",
+    color: "sky",
+    sticker: "★ projet phare",
     name: "GaijinJob",
     tagline: "Plateforme d'emploi full-stack",
     summary:
@@ -56,12 +58,18 @@ export const projects: Project[] = [
     stack: ["Next.js", "NestJS", "PostgreSQL", "Prisma", "next-intl", "Docker"],
     period: "2026",
     commits: 289,
-    image: { src: "/projects/gaijinjob.jpg", width: 1600, height: 1000, alt: "Page d'accueil de GaijinJob" },
+    image: {
+      src: "/projects/gaijinjob.jpg",
+      width: 1600,
+      height: 1000,
+      alt: "Page d'accueil de GaijinJob",
+    },
     demo: "https://gaijinjob.vercel.app",
   },
   {
     slug: "virgule",
-    kanji: "二", color: "coral",
+    kanji: "二",
+    color: "coral",
     name: "Virgule",
     tagline: "Décider à plusieurs, sans compte",
     summary:
@@ -76,13 +84,20 @@ export const projects: Project[] = [
     stack: ["Next.js 16", "Prisma", "Turso", "Pusher", "shadcn/ui", "Playwright"],
     period: "2026",
     commits: 123,
-    image: { src: "/projects/virgule.jpg", width: 1600, height: 1000, alt: "Écran de création de séance de Virgule" },
+    image: {
+      src: "/projects/virgule.jpg",
+      width: 1600,
+      height: 1000,
+      alt: "Écran de création de séance de Virgule",
+    },
     demo: "https://virgule.vercel.app",
     code: "https://github.com/GoBwah40/virgule",
   },
   {
     slug: "deckbuilder",
-    kanji: "三", color: "lime", sticker: "▶ jouable",
+    kanji: "三",
+    color: "lime",
+    sticker: "▶ jouable",
     name: "Deckbuilder",
     tagline: "Jeu de cartes roguelike",
     summary:
@@ -97,12 +112,18 @@ export const projects: Project[] = [
     stack: ["TypeScript", "React", "Vite", "Vitest", "Tailwind"],
     period: "2024 – 2026",
     commits: 59,
-    image: { src: "/projects/deckbuilder.jpg", width: 1600, height: 1000, alt: "Écran de combat du deckbuilder" },
+    image: {
+      src: "/projects/deckbuilder.jpg",
+      width: 1600,
+      height: 1000,
+      alt: "Écran de combat du deckbuilder",
+    },
     note: "Démo sur demande",
   },
   {
     slug: "night-binder",
-    kanji: "四", color: "lilac",
+    kanji: "四",
+    color: "lilac",
     name: "Night Binder",
     tagline: "Compagnon mobile de jeu de cartes",
     summary:

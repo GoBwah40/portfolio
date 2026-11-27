@@ -21,7 +21,8 @@ function applyTheme(next: Next, origin?: { x: number; y: number }) {
     if (next.mode) root.dataset.mode = next.mode;
   };
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!document.startViewTransition || reduce || document.visibilityState !== "visible") return run();
+  if (!document.startViewTransition || reduce || document.visibilityState !== "visible")
+    return run();
   if (origin) {
     root.style.setProperty("--vt-x", `${origin.x}px`);
     root.style.setProperty("--vt-y", `${origin.y}px`);
@@ -76,7 +77,9 @@ export function ThemeSwitcher() {
       {open && (
         <div className="switcher-panel" id={panelId} role="dialog" aria-label="Changer de style">
           <div>
-            <div className="switcher-title" id={`${panelId}-da`}>Direction artistique</div>
+            <div className="switcher-title" id={`${panelId}-da`}>
+              Direction artistique
+            </div>
             <div className="switcher-options" role="radiogroup" aria-labelledby={`${panelId}-da`}>
               {DAS.map((t) => (
                 <button
@@ -88,13 +91,22 @@ export function ThemeSwitcher() {
                   onClick={(e) => pick({ da: t.id }, e)}
                 >
                   <span className="da-swatch" aria-hidden>
-                    {t.swatch.map((c) => <i key={c} style={{ background: c }} />)}
+                    {t.swatch.map((c) => (
+                      <i key={c} style={{ background: c }} />
+                    ))}
                   </span>
                   <span>
                     {t.label}
                     <small>{t.hint}</small>
                   </span>
-                  <svg className="da-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
+                  <svg
+                    className="da-check"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    aria-hidden
+                  >
                     <path d="M5 12l5 5L20 7" />
                   </svg>
                 </button>
@@ -102,7 +114,9 @@ export function ThemeSwitcher() {
             </div>
           </div>
           <div>
-            <div className="switcher-title" id={`${panelId}-mode`}>Mode</div>
+            <div className="switcher-title" id={`${panelId}-mode`}>
+              Mode
+            </div>
             <div className="mode-group" role="radiogroup" aria-labelledby={`${panelId}-mode`}>
               {MODES.map((m) => (
                 <button
@@ -118,7 +132,9 @@ export function ThemeSwitcher() {
               ))}
             </div>
           </div>
-          <p className="switcher-note">Le choix est mémorisé. Partage un style avec ?theme=japon dans l&apos;URL.</p>
+          <p className="switcher-note">
+            Le choix est mémorisé. Partage un style avec ?theme=japon dans l&apos;URL.
+          </p>
         </div>
       )}
       <button
@@ -128,9 +144,19 @@ export function ThemeSwitcher() {
         aria-controls={panelId}
         onClick={() => setOpen((o) => !o)}
       >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden
+        >
           <path d="M12 21a9 9 0 1 1 9-9c0 1.66-1.34 3-3 3h-1.5a1.5 1.5 0 0 0-1.06 2.56 1.5 1.5 0 0 1-1.06 2.56Z" />
-          <circle cx="7.5" cy="10.5" r="1" /><circle cx="12" cy="7.5" r="1" /><circle cx="16.5" cy="10.5" r="1" />
+          <circle cx="7.5" cy="10.5" r="1" />
+          <circle cx="12" cy="7.5" r="1" />
+          <circle cx="16.5" cy="10.5" r="1" />
         </svg>
         Changer de style
       </button>
@@ -139,7 +165,15 @@ export function ThemeSwitcher() {
 }
 
 function ModeIcon({ mode }: { mode: ModeId }) {
-  const common = { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, "aria-hidden": true };
+  const common = {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 2,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    "aria-hidden": true,
+  };
   if (mode === "light")
     return (
       <svg {...common}>

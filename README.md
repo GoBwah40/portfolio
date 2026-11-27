@@ -8,6 +8,21 @@ npm run dev     # http://localhost:3000
 npm run build
 ```
 
+## Vérifications
+
+La CI (`.github/workflows/ci.yml`) lance les mêmes commandes qu'en local, sur chaque PR et chaque push vers `main` :
+
+```bash
+npm run format:check  # Prettier (corriger avec npm run format)
+npm run lint          # ESLint
+npm run typecheck     # TypeScript
+npm run knip          # fichiers, exports et dépendances inutilisés
+npm test              # Vitest
+npm run build
+```
+
+Dependabot propose chaque semaine les mises à jour des dépendances npm et des actions GitHub.
+
 ## Thèmes
 
 Trois directions artistiques (Sobre, Japon minimal, Néo-brutaliste), chacune en clair et en sombre :
