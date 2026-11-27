@@ -10,6 +10,11 @@ export const profile = {
   // À compléter : adresse de contact perso et LinkedIn (laisser vide pour masquer).
   email: "",
   linkedin: "",
+  // Accroche du hero, une par direction artistique.
+  headlines: {
+    sobre: "Des applications web complètes, de l'idée à la production.",
+    japon: "Construire avec soin, livrer avec calme.",
+  },
 };
 
 export type Project = {
@@ -22,6 +27,12 @@ export type Project = {
   period: string;
   commits: number;
   image: { src: string; width: number; height: number; alt: string; portrait?: boolean };
+  /** Numéral japonais (DA Japon minimal). */
+  kanji: string;
+  /** Couleur de carte (DA néo-brutaliste). */
+  color: "sky" | "coral" | "lime" | "lilac";
+  /** Étiquette collée sur la carte (DA néo-brutaliste). */
+  sticker?: string;
   demo?: string;
   code?: string;
   note?: string;
@@ -30,6 +41,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "gaijinjob",
+    kanji: "一", color: "sky", sticker: "★ projet phare",
     name: "GaijinJob",
     tagline: "Plateforme d'emploi full-stack",
     summary:
@@ -49,6 +61,7 @@ export const projects: Project[] = [
   },
   {
     slug: "virgule",
+    kanji: "二", color: "coral",
     name: "Virgule",
     tagline: "Décider à plusieurs, sans compte",
     summary:
@@ -69,6 +82,7 @@ export const projects: Project[] = [
   },
   {
     slug: "deckbuilder",
+    kanji: "三", color: "lime", sticker: "▶ jouable",
     name: "Deckbuilder",
     tagline: "Jeu de cartes roguelike",
     summary:
@@ -88,6 +102,7 @@ export const projects: Project[] = [
   },
   {
     slug: "night-binder",
+    kanji: "四", color: "lilac",
     name: "Night Binder",
     tagline: "Compagnon mobile de jeu de cartes",
     summary:
