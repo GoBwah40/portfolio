@@ -24,7 +24,7 @@ export const profile = {
 export const about = {
   paragraphs: [
     "Je viens du Pays basque, et mon chemin vers le code n'a pas été tout droit : j'ai exploré plusieurs voies avant de trouver la mienne. C'est en montant un site WordPress pendant un stage que j'ai découvert la programmation, et je ne l'ai plus lâchée.",
-    "J'ai commencé en autodidacte avec OpenClassrooms, puis je me suis formé chez Simplon, en alternance chez Staffelio, où je suis resté ensuite comme développeur front-end. Depuis 2026, je suis ingénieur full-stack chez Winback Group, à Biarritz. À côté, je continue à construire mes propres projets : une plateforme d'emploi au Japon, des jeux de cartes, des outils pour décider à plusieurs.",
+    "J'ai commencé en autodidacte avec OpenClassrooms, puis je me suis formé chez Simplon, en alternance chez Staffelio, où je suis resté ensuite comme développeur front-end. Depuis 2026, je suis ingénieur full-stack chez Winback Group, à Biarritz. À côté, je continue à construire mes propres projets : une plateforme d'emploi au Japon, des jeux de cartes, des outils pour décider à plusieurs. Je maîtrise aussi Claude et Claude Code, que j'utilise au quotidien pour concevoir, tester et livrer plus vite, sans rien lâcher sur la qualité.",
     "Passionné de culture japonaise depuis l'adolescence, je pratique aussi le surf, la pala et le foot. Ce qui me guide en développement : des interfaces soignées et accessibles, du code testé qui se laisse maintenir, et des produits qui rendent vraiment service.",
   ],
   facts: [
