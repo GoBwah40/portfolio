@@ -9,7 +9,8 @@ const totalCommits = projects.reduce((sum, p) => sum + p.commits, 0);
 const maxCommits = Math.max(...projects.map((p) => p.commits));
 const techCount = new Set(projects.flatMap((p) => p.stack)).size;
 const figures = [
-  { value: projects.length, label: "projets en ligne", color: "sky" },
+  // Seuls les projets avec une démo publique comptent (Deckbuilder n'en a pas).
+  { value: projects.filter((p) => p.demo).length, label: "projets en ligne", color: "sky" },
   { value: totalCommits, label: "commits", color: "coral" },
   { value: techCount, label: "technos", color: "lime" },
   { value: firstRepoYear, label: "premier dépôt", color: "lilac" },
