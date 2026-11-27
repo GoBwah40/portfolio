@@ -20,11 +20,11 @@ export const profile = {
 };
 
 // Bloc « Présentation ». Rédigé d'après les anciens CV en ligne (dépôts cv et cv_en_Ligne)
-// et les projets, complété par l'utilisateur (poste, ville, disponibilité).
+// et les projets, complété par l'utilisateur et son profil LinkedIn (expériences, formations).
 export const about = {
   paragraphs: [
     "Je viens du Pays basque, et mon chemin vers le code n'a pas été tout droit : j'ai exploré plusieurs voies avant de trouver la mienne. C'est en montant un site WordPress pendant un stage que j'ai découvert la programmation, et je ne l'ai plus lâchée.",
-    "J'ai commencé en autodidacte avec OpenClassrooms, puis je me suis formé au développement web et mobile à l'AFPA et chez Simplon. Aujourd'hui développeur full-stack, je continue à construire mes propres projets : une plateforme d'emploi au Japon, des jeux de cartes, des outils pour décider à plusieurs.",
+    "J'ai commencé en autodidacte avec OpenClassrooms, puis je me suis formé chez Simplon, en alternance chez Staffelio, où je suis resté ensuite comme développeur front-end. Depuis 2026, je suis ingénieur full-stack chez Winback Group, à Biarritz. À côté, je continue à construire mes propres projets : une plateforme d'emploi au Japon, des jeux de cartes, des outils pour décider à plusieurs.",
     "Passionné de culture japonaise depuis l'adolescence, je pratique aussi le surf, la pala et le foot. Ce qui me guide en développement : des interfaces soignées et accessibles, du code testé qui se laisse maintenir, et des produits qui rendent vraiment service.",
   ],
   facts: [
@@ -34,15 +34,19 @@ export const about = {
     { label: "Spécialité", value: "TypeScript, Next.js, NestJS" },
   ],
   timeline: [
-    { when: "2017 – 2018", what: "BTS Communication, premier site WordPress", where: "Bayonne" },
-    { when: "2020", what: "Autodidacte : HTML, CSS, JavaScript", where: "OpenClassrooms" },
-    { when: "2022", what: "Formation développeur web et mobile", where: "AFPA, Simplon" },
     {
-      when: "2024 – 2026",
-      what: "Projets perso : jeux, apps web, plateforme d'emploi",
-      where: "Indépendant",
+      when: "2017 – 2019",
+      what: "BTS Communication, premier site WordPress",
+      where: "Talis Business School",
     },
-    { when: "Aujourd'hui", what: "Développeur full-stack" },
+    { when: "2020", what: "Autodidacte : HTML, CSS, JavaScript", where: "OpenClassrooms" },
+    {
+      when: "2022 – 2024",
+      what: "Développeur full-stack en alternance",
+      where: "Staffelio · Simplon Grand Ouest",
+    },
+    { when: "2024 – 2026", what: "Développeur front-end", where: "Staffelio" },
+    { when: "2026 – aujourd'hui", what: "Ingénieur full-stack", where: "Winback Group, Biarritz" },
   ],
 };
 
