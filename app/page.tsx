@@ -33,7 +33,10 @@ export default function Home() {
           <span className="hanko only-japon" aria-hidden>
             マ
           </span>
-          <span className="brand-name">{profile.name}</span>
+          <span className="brand-name">
+            <span className="brand-full">{profile.name}</span>
+            <span className="brand-short">{profile.shortName}</span>
+          </span>
         </a>
         <nav className="nav-links" aria-label="Sections">
           <a href="#projets">

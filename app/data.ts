@@ -2,6 +2,8 @@
 
 export const profile = {
   name: "Matthias Della-Libera",
+  // Version courte affichée dans l'en-tête quand la place manque.
+  shortName: "Matthias D.-L.",
   role: "Développeur full-stack TypeScript",
   intro:
     "Je conçois des applications web de bout en bout : interface, API, base de données, tests et mise en production. " +
