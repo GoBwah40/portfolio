@@ -19,6 +19,37 @@ export const profile = {
   },
 };
 
+// Bloc « Présentation ». Rédigé d'après les anciens CV en ligne (dépôts cv et cv_en_Ligne)
+// et les projets, complété par l'utilisateur et son profil LinkedIn (expériences, formations).
+export const about = {
+  paragraphs: [
+    "Je viens du Pays basque, et mon chemin vers le code n'a pas été tout droit : j'ai exploré plusieurs voies avant de trouver la mienne. C'est en montant un site WordPress pendant un stage que j'ai découvert la programmation, et je ne l'ai plus lâchée.",
+    "J'ai commencé en autodidacte avec OpenClassrooms, puis je me suis formé chez Simplon, en alternance chez Staffelio, où je suis resté ensuite comme développeur front-end. Depuis 2026, je suis ingénieur full-stack chez Winback Group, à Biarritz. À côté, je continue à construire mes propres projets : une plateforme d'emploi au Japon, des jeux de cartes, des outils pour décider à plusieurs. Je maîtrise aussi Claude et Claude Code, que j'utilise au quotidien pour concevoir, tester et livrer plus vite, sans rien lâcher sur la qualité.",
+    "Passionné de culture japonaise depuis l'adolescence, je pratique aussi le surf, la pala et le foot. Ce qui me guide en développement : des interfaces soignées et accessibles, du code testé qui se laisse maintenir, et des produits qui rendent vraiment service.",
+  ],
+  facts: [
+    { label: "Basé à", value: "Tarnos, Landes" },
+    { label: "Disponible", value: "En fin de journée et le week-end" },
+    { label: "Langues", value: "Français, anglais" },
+    { label: "Spécialité", value: "TypeScript, Next.js, NestJS" },
+  ],
+  timeline: [
+    {
+      when: "2017 – 2019",
+      what: "BTS Communication, premier site WordPress",
+      where: "Talis Business School",
+    },
+    { when: "2020", what: "Autodidacte : HTML, CSS, JavaScript", where: "OpenClassrooms" },
+    {
+      when: "2022 – 2024",
+      what: "Développeur full-stack en alternance",
+      where: "Staffelio · Simplon Grand Ouest",
+    },
+    { when: "2024 – 2026", what: "Développeur front-end", where: "Staffelio" },
+    { when: "2026 – aujourd'hui", what: "Ingénieur full-stack", where: "Winback Group, Biarritz" },
+  ],
+};
+
 export type Project = {
   slug: string;
   name: string;
@@ -58,7 +89,7 @@ export const projects: Project[] = [
       "Authentification par session (Better Auth), stockage S3 avec repli local",
       "8 décisions d'architecture documentées (ADR), CI lint + types + tests + code mort",
     ],
-    stack: ["Next.js", "NestJS", "PostgreSQL", "Prisma", "next-intl", "Docker"],
+    stack: ["Next.js", "NestJS", "PostgreSQL", "Prisma", "next-intl", "Docker", "Claude Code"],
     period: "2026",
     commits: 289,
     image: {
@@ -112,7 +143,7 @@ export const projects: Project[] = [
       "Aléatoire seedé : une seed donne une partie rejouable à l'identique",
       "IA ennemie aux intentions pondérées, reliques, récompenses par rareté",
     ],
-    stack: ["TypeScript", "React", "Vite", "Vitest", "Tailwind"],
+    stack: ["TypeScript", "React", "Vite", "Vitest", "Tailwind", "Claude Code"],
     period: "2024 – 2026",
     commits: 59,
     image: {
