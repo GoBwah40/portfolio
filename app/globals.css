@@ -341,6 +341,22 @@ body {
   [data-da="sobre"] .project:not(:first-child) .highlights {
     display: none;
   }
+  /* Dernier projet seul sur sa ligne : toute la largeur, en miroir du projet phare. */
+  [data-da="sobre"] .project:nth-child(3n + 2):last-child {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  }
+  [data-da="sobre"] .project:nth-child(3n + 2):last-child .shot {
+    order: 2;
+    padding: 1.5rem;
+  }
+  [data-da="sobre"] .project:nth-child(3n + 2):last-child .project-body {
+    padding: 2rem;
+  }
+  [data-da="sobre"] .project:nth-child(3n + 2):last-child .highlights {
+    display: grid;
+  }
 }
 .shot {
   display: flex;
@@ -1235,6 +1251,20 @@ body {
 @media (min-width: 768px) {
   [data-da="brutal"] .projects {
     grid-template-columns: 1fr 1fr;
+  }
+}
+/* Dernier projet seul sur sa ligne : toute la largeur, image et texte côte à côte. */
+@media (min-width: 768px) {
+  [data-da="brutal"] .project:nth-child(odd):last-child {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  [data-da="brutal"] .project:nth-child(odd):last-child > .shot,
+  [data-da="brutal"] .project:nth-child(odd):last-child > .project-body {
+    flex: 1 1 0;
+    min-width: 0;
   }
 }
 @media (min-width: 1024px) {
