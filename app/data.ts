@@ -177,13 +177,5 @@ export const projects: Project[] = [
   },
 ];
 
-// Années des premiers dépôts (section « Premiers projets » et chiffres néo-brutalistes).
-export const earlierPeriod = { from: 2022, to: 2023 };
-
-// Dépôts anciens, plus maintenus : affichés sans lien, avec la mention « indisponible ».
-export const earlier = [
-  { name: "CV en ligne", stack: "HTML, CSS, JS" },
-  { name: "Projet CEFIM", stack: "Site vitrine" },
-  { name: "Pomodoro", stack: "Kotlin, Android" },
-  { name: "MemoApp", stack: "Java" },
-];
+// Année du premier dépôt (chiffres néo-brutalistes).
+export const firstRepoYear = 2022;
