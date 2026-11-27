@@ -38,12 +38,15 @@ export function ThemeSwitcher() {
   const panelId = useId();
   const ref = useRef<HTMLDivElement>(null);
 
-  // Lit l'état posé par le script anti-flash.
-  useEffect(() => {
-    const root = document.documentElement;
-    setDa((root.dataset.da as DaId) ?? "sobre");
-    setMode((root.dataset.mode as ModeId) ?? "system");
-  }, []);
+  // À l'ouverture, relit l'état posé par le script anti-flash (ou par un choix précédent).
+  const toggle = () => {
+    if (!open) {
+      const root = document.documentElement;
+      setDa((root.dataset.da as DaId) ?? "sobre");
+      setMode((root.dataset.mode as ModeId) ?? "system");
+    }
+    setOpen(!open);
+  };
 
   // Fermeture : Échap ou clic à l'extérieur.
   useEffect(() => {
@@ -142,7 +145,7 @@ export function ThemeSwitcher() {
         className="switcher-toggle"
         aria-expanded={open}
         aria-controls={panelId}
-        onClick={() => setOpen((o) => !o)}
+        onClick={toggle}
       >
         <svg
           viewBox="0 0 24 24"

@@ -44,9 +44,9 @@ jobs:
       - name: Tests
         run: npm test
 
-      # Affiche toutes les failles des dépendances de production, mais ne bloque que sur les critiques.
+      # Bloque sur les failles hautes ou critiques des dépendances de production.
       - name: Audit de sécurité
-        run: npm audit --omit=dev --audit-level=critical
+        run: npm audit --omit=dev --audit-level=high
 
       # Aucune variable d'environnement : le build ne doit pas dépendre de secrets.
       - name: Build
