@@ -5,6 +5,9 @@ import { ThemeSwitcher } from "./theme-switcher";
 
 const totalCommits = projects.reduce((sum, p) => sum + p.commits, 0);
 const maxCommits = Math.max(...projects.map((p) => p.commits));
+// Liens vers d'autres sites : nouvel onglet, sans accès de la page ouverte à celle-ci.
+const external = { target: "_blank", rel: "noopener noreferrer" } as const;
+
 const stackMarquee = ["Next.js", "NestJS", "PostgreSQL", "Prisma", "Supabase", "React", "Playwright", "Vitest", "Docker"];
 
 export default function Home() {
@@ -44,7 +47,7 @@ export default function Home() {
             <p className="hero-intro">{profile.intro}</p>
             <div className="cta">
               <a href="#projets" className="btn btn-primary">Voir les projets</a>
-              <a href={profile.github} className="btn">GitHub</a>
+              <a href={profile.github} className="btn" {...external}>GitHub</a>
             </div>
           </div>
           <div className="vert only-japon" aria-hidden>作品集・二〇二六</div>
@@ -112,7 +115,7 @@ export default function Home() {
               <ContactForm fallbackEmail={profile.email} />
               <ul>
                 {contacts.map((c) => (
-                  <li key={c.href}><a href={c.href} className="link">{c.label}</a></li>
+                  <li key={c.href}><a href={c.href} className="link" {...external}>{c.label}</a></li>
                 ))}
               </ul>
             </div>
@@ -160,8 +163,8 @@ function ProjectCard({ project: p, index }: { project: Project; index: number })
           {p.stack.map((s) => <li key={s}>{s}</li>)}
         </ul>
         <div className="links">
-          {p.demo && <a href={p.demo} className="link">Voir la démo ↗</a>}
-          {p.code && <a href={p.code} className="link">Code source ↗</a>}
+          {p.demo && <a href={p.demo} className="link" {...external}>Voir la démo ↗</a>}
+          {p.code && <a href={p.code} className="link" {...external}>Code source ↗</a>}
           {!p.code && <span className="muted">Code privé, sur demande</span>}
           {p.note && <span className="muted">{p.note}</span>}
         </div>
