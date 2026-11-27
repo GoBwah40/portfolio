@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   verifier:
-    name: Lint, types et build
+    name: Vérifications
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -29,11 +29,24 @@ jobs:
 
       - run: npm ci
 
+      - name: Formatage (Prettier)
+        run: npm run format:check
+
       - name: Lint
         run: npm run lint
 
       - name: Vérification des types
         run: npm run typecheck
+
+      - name: Code inutilisé (knip)
+        run: npm run knip
+
+      - name: Tests
+        run: npm test
+
+      # Affiche toutes les failles des dépendances de production, mais ne bloque que sur les critiques.
+      - name: Audit de sécurité
+        run: npm audit --omit=dev --audit-level=critical
 
       # Aucune variable d'environnement : le build ne doit pas dépendre de secrets.
       - name: Build
