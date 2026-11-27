@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { earlier, profile, projects, type Project } from "./data";
+import { ContactForm } from "./contact-form";
 import { ThemeSwitcher } from "./theme-switcher";
 
 const totalCommits = projects.reduce((sum, p) => sum + p.commits, 0);
@@ -10,7 +11,6 @@ export default function Home() {
   const contacts = [
     { label: "GitHub", href: profile.github },
     profile.linkedin && { label: "LinkedIn", href: profile.linkedin },
-    profile.email && { label: profile.email, href: `mailto:${profile.email}` },
   ].filter(Boolean) as { label: string; href: string }[];
 
   return (
@@ -84,7 +84,10 @@ export default function Home() {
           <ul className="early">
             {earlier.map((e) => (
               <li key={e.name}>
-                <a href={e.href} className="link">{e.name}</a>
+                <span className="early-name">
+                  {e.name}
+                  <span className="badge-off">Indisponible</span>
+                </span>
                 <span>{e.stack}</span>
               </li>
             ))}
@@ -105,7 +108,8 @@ export default function Home() {
                 <span className="only-japon">Un projet, une question, un café ?</span>
                 <span className="only-brutal">On construit un truc ?</span>
               </h2>
-              <p>Une question sur un projet, ou envie de voir le code d&apos;un dépôt privé ?</p>
+              <p>Une question sur un projet, ou envie de voir le code d&apos;un dépôt privé ? Écris-moi ici.</p>
+              <ContactForm fallbackEmail={profile.email} />
               <ul>
                 {contacts.map((c) => (
                   <li key={c.href}><a href={c.href} className="link">{c.label}</a></li>

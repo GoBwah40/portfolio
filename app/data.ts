@@ -7,9 +7,9 @@ export const profile = {
     "Je conçois des applications web de bout en bout : interface, API, base de données, tests et mise en production. " +
     "J'aime les produits soignés et le code qui se laisse maintenir.",
   github: "https://github.com/GoBwah40",
-  // À compléter : adresse de contact perso et LinkedIn (laisser vide pour masquer).
-  email: "",
-  linkedin: "",
+  // Destinataire du formulaire de contact (non affiché tel quel sur la page).
+  email: "dellalibera40@gmail.com",
+  linkedin: "https://www.linkedin.com/in/matthias-della-libera-9b6721174/",
   // Accroche du hero, une par direction artistique.
   headlines: {
     sobre: "Des applications web complètes, de l'idée à la production.",
@@ -118,20 +118,20 @@ export const projects: Project[] = [
     period: "2026",
     commits: 45,
     image: {
-      src: "/projects/cyberpunk-tcg.jpg",
-      width: 780,
-      height: 1688,
-      alt: "Catalogue de Night Binder sur mobile (illustrations floutées)",
-      portrait: true,
+      src: "/projects/night-binder.jpg",
+      width: 1600,
+      height: 1000,
+      alt: "Trois écrans de Night Binder en mode démo : catalogue, collection et fiche de carte",
     },
     demo: "https://cyberpunk-tcg-murex.vercel.app",
   },
 ];
 
+// Dépôts anciens, plus maintenus : affichés sans lien, avec la mention « indisponible ».
 export const earlier = [
-  { name: "CV en ligne", stack: "HTML, CSS, JS", href: "https://github.com/GoBwah40/cv_en_Ligne" },
-  { name: "Projet CEFIM", stack: "Site vitrine", href: "https://github.com/GoBwah40/projet-CEFIM" },
-  { name: "Ma Ghibli liste", stack: "JS, API", href: "https://github.com/GoBwah40/maGhibliListe" },
-  { name: "Pomodoro", stack: "Kotlin, Android", href: "https://github.com/GoBwah40/Pomodoro-main" },
-  { name: "MemoApp", stack: "Java", href: "https://github.com/GoBwah40/MemoApp" },
+  { name: "CV en ligne", stack: "HTML, CSS, JS" },
+  { name: "Projet CEFIM", stack: "Site vitrine" },
+  { name: "Ma Ghibli liste", stack: "JS, API" },
+  { name: "Pomodoro", stack: "Kotlin, Android" },
+  { name: "MemoApp", stack: "Java" },
 ];

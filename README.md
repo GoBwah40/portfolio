@@ -17,4 +17,9 @@ Trois directions artistiques (Sobre, Japon minimal, Néo-brutaliste), chacune en
 - Le sélecteur (`app/theme-switcher.tsx`) mémorise le choix et anime le changement avec la View Transitions API (désactivé si mouvement réduit).
 - Lien direct vers un style : `?theme=japon` ou `?theme=brutal&mode=dark`.
 
-Les captures des projets sont dans `public/projects/`. Sur celle de Night Binder, les illustrations des cartes sont floutées volontairement (visuels officiels).
+## Formulaire de contact
+
+`app/api/contact/route.ts` envoie les messages par e-mail via [Resend](https://resend.com) (validation, champ piège anti-robots, 5 messages / 10 min par IP).
+Copier `.env.example` en `.env.local` et renseigner `RESEND_API_KEY` (et la même variable sur Vercel). Sans clé, le formulaire affiche l'adresse e-mail en repli.
+
+Les captures des projets sont dans `public/projects/`. Celle de Night Binder vient du mode démo de l'app (cartes fictives, aucun visuel officiel).
