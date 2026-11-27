@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { earlier, earlierPeriod, profile, projects, type Project } from "./data";
+import { firstRepoYear, profile, projects, type Project } from "./data";
 import { BrandMark } from "./brand-mark";
 import { ContactForm } from "./contact-form";
 import { ProjectIndex } from "./project-index";
@@ -14,7 +14,7 @@ const figures = [
   { value: projects.length, label: "projets en ligne", color: "sky" },
   { value: totalCommits, label: "commits", color: "coral" },
   { value: techCount, label: "technos", color: "lime" },
-  { value: earlierPeriod.from, label: "premier dépôt", color: "lilac" },
+  { value: firstRepoYear, label: "premier dépôt", color: "lilac" },
 ] as const;
 // Liens vers d'autres sites : nouvel onglet, sans accès de la page ouverte à celle-ci.
 const external = { target: "_blank", rel: "noopener noreferrer" } as const;
@@ -105,9 +105,7 @@ export default function Home() {
               </div>
               <div>
                 <dt>Projets</dt>
-                <dd>
-                  {projects.length} + {earlier.length}
-                </dd>
+                <dd>{projects.length}</dd>
               </div>
               <div>
                 <dt>Commits</dt>
@@ -155,28 +153,6 @@ export default function Home() {
               <ProjectCard key={p.slug} project={p} index={i} />
             ))}
           </div>
-        </section>
-
-        <section className="section wrap">
-          <h2 className="section-label">
-            <span className="jp" aria-hidden>
-              初期
-            </span>
-            <span className="jp-sub">
-              Premiers projets ({earlierPeriod.from} – {earlierPeriod.to})
-            </span>
-          </h2>
-          <ul className="early">
-            {earlier.map((e) => (
-              <li key={e.name}>
-                <span className="early-name">
-                  {e.name}
-                  <span className="badge-off">Indisponible</span>
-                </span>
-                <span>{e.stack}</span>
-              </li>
-            ))}
-          </ul>
         </section>
       </main>
 

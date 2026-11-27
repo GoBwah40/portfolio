@@ -148,16 +148,34 @@ export const projects: Project[] = [
     },
     demo: "https://cyberpunk-tcg-murex.vercel.app",
   },
+  {
+    slug: "ghiblilist",
+    kanji: "五",
+    color: "sky",
+    name: "The GhibliList",
+    tagline: "Catalogue des films du Studio Ghibli",
+    summary:
+      "Les 24 longs métrages du Studio Ghibli : affiches, synopsis, équipe, note, et recherche en anglais, japonais ou rōmaji. " +
+      "Projet de 2023 remis à neuf en 2026, avec l'accessibilité comme fil rouge.",
+    highlights: [
+      "WCAG 2.2 AA : Lighthouse 100, axe-core en CI, parcours testé avec VoiceOver",
+      "Quatre thèmes avec logotype adapté, choix mémorisé sans flash",
+      "Données TMDB générées au build et rafraîchies chaque jour (ISR)",
+      "Migration Next.js 13 → 16, React 19 et Tailwind v4",
+    ],
+    stack: ["Next.js 16", "React 19", "Tailwind v4", "TMDB API", "Playwright"],
+    period: "2023 – 2026",
+    commits: 59,
+    image: {
+      src: "/projects/ghiblilist.jpg",
+      width: 1600,
+      height: 1000,
+      alt: "Trois écrans mobiles de The GhibliList dans trois thèmes : liste des films, fiche de The Boy and the Heron, liste façon affiche",
+    },
+    demo: "https://ghiblilist.vercel.app",
+    code: "https://github.com/GoBwah40/ghiblilist",
+  },
 ];
 
-// Années des premiers dépôts (section « Premiers projets » et chiffres néo-brutalistes).
-export const earlierPeriod = { from: 2022, to: 2023 };
-
-// Dépôts anciens, plus maintenus : affichés sans lien, avec la mention « indisponible ».
-export const earlier = [
-  { name: "CV en ligne", stack: "HTML, CSS, JS" },
-  { name: "Projet CEFIM", stack: "Site vitrine" },
-  { name: "Ma Ghibli liste", stack: "JS, API" },
-  { name: "Pomodoro", stack: "Kotlin, Android" },
-  { name: "MemoApp", stack: "Java" },
-];
+// Année du premier dépôt (chiffres néo-brutalistes).
+export const firstRepoYear = 2022;
