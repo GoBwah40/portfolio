@@ -28,6 +28,8 @@
   --muted: light-dark(#5f5c66, #a19da8);
   --line: light-dark(#e4e0d8, #2c2a31);
   --accent: light-dark(#d24b2a, #ff7a57);
+  /* Accent pour du texte sur le fond : un peu plus foncé en clair pour atteindre 4,5:1. */
+  --accent-text: light-dark(#c24527, #ff7a57);
   --chip: light-dark(#efebe4, #24222a);
   --on-fg: var(--bg);
   --f-display: var(--font-geist), system-ui, sans-serif;
@@ -41,7 +43,7 @@
   --bg: light-dark(#f6f2ea, #151412);
   --surface: light-dark(#fbf9f4, #1c1b18);
   --fg: light-dark(#1d1c1a, #ece6da);
-  --muted: light-dark(#7d786e, #938d80);
+  --muted: light-dark(#6c675f, #938d80);
   --line: light-dark(#ddd6c8, #34312c);
   --accent: light-dark(#c8372d, #e0493c);
   --chip: light-dark(#efe9dc, #24221e);
@@ -198,7 +200,7 @@ body {
 .eyebrow {
   font-family: var(--f-mono);
   font-size: 0.875rem;
-  color: var(--accent);
+  color: var(--accent-text, var(--accent));
 }
 .hero-title {
   margin-top: 1rem;
