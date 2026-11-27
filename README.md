@@ -19,7 +19,13 @@ npm run typecheck     # TypeScript
 npm run knip          # fichiers, exports et dépendances inutilisés
 npm test              # Vitest
 npm run build
+npm run test:e2e      # Playwright + axe (WCAG 2.2 AA), contre le build de production
+npm run lhci          # Lighthouse CI, contre le build de production (après npm run build)
 ```
+
+Avant la première exécution de `test:e2e` ou `lhci`, installer Chromium : `npx playwright install chromium`.
+
+La version de Node est fixée par `engines.node` dans `package.json` : la CI et Vercel suivent la même.
 
 Dependabot propose chaque semaine les mises à jour des dépendances npm et des actions GitHub.
 

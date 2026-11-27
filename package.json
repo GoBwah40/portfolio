@@ -11,7 +11,9 @@
     "test": "vitest run",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "knip": "knip"
+    "knip": "knip",
+    "test:e2e": "playwright test",
+    "lhci": "lhci autorun"
   },
   "dependencies": {
     "next": "^16.4.6",
@@ -19,6 +21,9 @@
     "react-dom": "^19.3.1"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.1",
+    "@lhci/cli": "^0.16.1",
+    "@playwright/test": "^1.65.1",
     "@tailwindcss/postcss": "^4.3.5",
     "@types/node": "^24.19.4",
     "@types/react": "^19.3.3",
@@ -31,5 +36,8 @@
     "tailwindcss": "^4.3.5",
     "typescript": "~6.0",
     "vitest": "^5.1.2"
+  },
+  "engines": {
+    "node": "26.x"
   }
 }

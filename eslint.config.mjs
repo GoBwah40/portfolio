@@ -7,5 +7,10 @@ export default defineConfig([
   ...nextVitals,
   ...nextTs,
   prettier,
+  {
+    // Fichiers de configuration CommonJS (Lighthouse CI).
+    files: ["**/*.cjs"],
+    rules: { "@typescript-eslint/no-require-imports": "off" },
+  },
   globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts"]),
 ]);
