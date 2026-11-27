@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { earlier, profile, projects, type Project } from "./data";
+import { BrandMark } from "./brand-mark";
 import { ContactForm } from "./contact-form";
 import { ThemeSwitcher } from "./theme-switcher";
 
@@ -30,9 +31,7 @@ export default function Home() {
     <>
       <header className="nav wrap">
         <a href="#" className="brand">
-          <span className="hanko only-japon" aria-hidden>
-            マ
-          </span>
+          <BrandMark className="brand-mark" />
           <span className="brand-name">
             <span className="brand-full">{profile.name}</span>
             <span className="brand-short">{profile.shortName}</span>
