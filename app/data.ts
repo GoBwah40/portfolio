@@ -172,6 +172,7 @@ export const projects: Project[] = [
       height: 1000,
       alt: "Trois écrans mobiles de The GhibliList dans trois thèmes : liste des films, fiche de The Boy and the Heron, liste façon affiche",
     },
+    demo: "https://ghiblilist.vercel.app",
     code: "https://github.com/GoBwah40/ghiblilist",
   },
 ];
