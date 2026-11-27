@@ -14,6 +14,11 @@ concurrency:
 permissions:
   contents: read
 
+env:
+  NEXT_TELEMETRY_DISABLED: 1
+
+# La version de Node vient de engines.node dans package.json, la même que sur Vercel.
+
 jobs:
   verifier:
     name: Vérifications
@@ -24,7 +29,7 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          node-version: 26 # LTS actif
+          node-version-file: package.json
           cache: npm
 
       - run: npm ci
@@ -51,5 +56,111 @@ jobs:
       # Aucune variable d'environnement : le build ne doit pas dépendre de secrets.
       - name: Build
         run: npm run build
-        env:
-          NEXT_TELEMETRY_DISABLED: 1
+
+  installation:
+    name: Installation comme Vercel
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      # Pas de cache npm : on reproduit une installation à froid.
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: package.json
+
+      # Vercel lance npm install (pas npm ci), qui vérifie les dépendances pairs.
+      - name: npm install avec le lockfile
+        run: |
+          npm install --no-audit --no-fund
+          git diff --exit-code package-lock.json
+
+      - name: npm install sans lockfile
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install --no-audit --no-fund
+
+  e2e:
+    name: Tests end-to-end (Playwright, axe)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: package.json
+          cache: npm
+
+      - run: npm ci
+
+      - &playwright-version
+        name: Version de Playwright
+        id: playwright
+        run: echo "version=$(node -p "require('@playwright/test/package.json').version")" >> "$GITHUB_OUTPUT"
+
+      - &playwright-cache
+        name: Cache des navigateurs Playwright
+        id: playwright-cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright.outputs.version }}
+
+      - &playwright-install
+        name: Installer Chromium
+        run: |
+          if [ "${{ steps.playwright-cache.outputs.cache-hit }}" = "true" ]; then
+            npx playwright install-deps chromium
+          else
+            npx playwright install --with-deps chromium
+          fi
+
+      - name: Build
+        run: npm run build
+
+      - name: Tests end-to-end
+        run: npm run test:e2e
+
+      - name: Rapport Playwright
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-report
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14
+
+  lighthouse:
+    name: Lighthouse
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: package.json
+          cache: npm
+
+      - run: npm ci
+
+      - *playwright-version
+      - *playwright-cache
+      - *playwright-install
+
+      - name: Build
+        run: npm run build
+
+      # Audite le build local, pas l'aperçu Vercel : aucune dépendance au déploiement.
+      - name: Lighthouse CI
+        run: npm run lhci
+
+      - name: Rapports Lighthouse
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: lighthouse-report
+          path: .lighthouseci/
+          retention-days: 14
