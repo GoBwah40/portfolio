@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { firstRepoYear, profile, projects, type Project } from "./data";
+import { about, firstRepoYear, profile, projects, type Project } from "./data";
 import { BrandMark } from "./brand-mark";
 import { ContactForm } from "./contact-form";
 import { ProjectIndex } from "./project-index";
@@ -121,6 +121,52 @@ export default function Home() {
             ))}
           </div>
         </div>
+
+        <section id="presentation" className="section about wrap">
+          <h2 className="section-label">
+            <span className="jp" aria-hidden>
+              紹介
+            </span>
+            <span className="jp-sub">Présentation</span>
+          </h2>
+          <div className="about-body">
+            <div className="about-photo" aria-hidden>
+              <BrandMark className="about-photo-mark" />
+              <span className="about-photo-note">Ta photo ici</span>
+            </div>
+            <div className="about-text">
+              {about.paragraphs.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+            </div>
+            <div className="about-more">
+              <dl className="about-facts">
+                {about.facts.map((f) => (
+                  <div key={f.label}>
+                    <dt>{f.label}</dt>
+                    <dd>{f.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <div
+                className="about-timeline-scroll"
+                role="region"
+                aria-label="Parcours"
+                tabIndex={0}
+              >
+                <ol className="about-timeline">
+                  {about.timeline.map((t) => (
+                    <li key={t.what}>
+                      <span className="about-when">{t.when}</span>
+                      <span className="about-what">{t.what}</span>
+                      <span className="about-where">{t.where}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section id="projets" className="section wrap">
           <div className="section-side">

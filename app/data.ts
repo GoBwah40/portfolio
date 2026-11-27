@@ -19,6 +19,30 @@ export const profile = {
   },
 };
 
+// Bloc « Présentation ». MAQUETTE : les textes entre crochets sont à remplacer par les vrais.
+export const about = {
+  paragraphs: [
+    "[À remplacer] Développeur full-stack TypeScript, je construis des applications web de bout en bout : de la maquette à la mise en production, en passant par l'API et la base de données.",
+    "[À remplacer] Après une formation au CEFIM en 2022, je travaille aujourd'hui comme [poste] chez [entreprise], où je [ce que tu y fais]. À côté, je développe mes propres projets, dont ceux présentés plus bas.",
+    "[À remplacer] Ce que j'aime : les interfaces soignées et accessibles, le code testé qui se laisse maintenir, et les produits qui rendent un vrai service.",
+  ],
+  facts: [
+    { label: "Basé à", value: "[Ville], France" },
+    { label: "Disponibilité", value: "[CDI, freelance…]" },
+    { label: "Langues", value: "Français, anglais" },
+    { label: "Spécialité", value: "TypeScript, Next.js, NestJS" },
+  ],
+  timeline: [
+    { when: "2022", what: "Formation développeur web", where: "CEFIM" },
+    { when: "[année]", what: "[Poste actuel]", where: "[Entreprise]" },
+    {
+      when: "2024 – 2026",
+      what: "Projets perso : jeux, apps web, plateforme d'emploi",
+      where: "Indépendant",
+    },
+  ],
+};
+
 export type Project = {
   slug: string;
   name: string;
