@@ -1,6 +1,6 @@
 # Portfolio
 
-Site portfolio (Next.js 15, Tailwind v4). Tout le contenu est dans `app/data.ts`.
+Site portfolio (Next.js 16, Tailwind v4). Tout le contenu est dans `app/data.ts`.
 
 ```bash
 npm install
