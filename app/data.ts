@@ -23,7 +23,7 @@ export const profile = {
 // et les projets, complété par l'utilisateur (poste, ville, disponibilité).
 export const about = {
   paragraphs: [
-    "Je viens du Pays basque, et mon chemin vers le code n'a pas été tout droit : économie, prépa infirmier, BTS Communication, hôtellerie. C'est en montant un site WordPress pendant un stage que j'ai découvert la programmation, et je ne l'ai plus lâchée.",
+    "Je viens du Pays basque, et mon chemin vers le code n'a pas été tout droit : j'ai exploré plusieurs voies avant de trouver la mienne. C'est en montant un site WordPress pendant un stage que j'ai découvert la programmation, et je ne l'ai plus lâchée.",
     "J'ai commencé en autodidacte avec OpenClassrooms, puis je me suis formé au développement web et mobile à l'AFPA et au CEFIM. Aujourd'hui développeur full-stack, je continue à construire mes propres projets : une plateforme d'emploi au Japon, des jeux de cartes, des outils pour décider à plusieurs.",
     "Passionné de culture japonaise depuis l'adolescence, je pratique aussi le bodyboard, la pala et l'escalade. Ce qui me guide en développement : des interfaces soignées et accessibles, du code testé qui se laisse maintenir, et des produits qui rendent vraiment service.",
   ],
