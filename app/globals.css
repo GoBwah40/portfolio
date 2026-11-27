@@ -302,6 +302,46 @@ body {
 .project-num {
   display: none;
 }
+.project {
+  scroll-margin-top: 1.5rem;
+}
+
+/* Sobre, grand écran : bento. Projet phare sur toute la largeur, les trois autres en colonnes. */
+@media (min-width: 1024px) {
+  [data-da="sobre"] #projets {
+    max-width: 80rem;
+  }
+  [data-da="sobre"] .projects {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  [data-da="sobre"] .project {
+    display: flex;
+    flex-direction: column;
+  }
+  [data-da="sobre"] .project:first-child {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  }
+  [data-da="sobre"] .project:not(:first-child) .shot {
+    order: 0;
+    padding: 1.25rem;
+  }
+  [data-da="sobre"] .project:not(:first-child) .project-body {
+    flex: 1;
+    padding: 1.5rem;
+  }
+  [data-da="sobre"] .project:not(:first-child) .meta {
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+  }
+  /* Points clés réservés au projet phare : les petites cartes restent lisibles. */
+  [data-da="sobre"] .project:not(:first-child) .highlights {
+    display: none;
+  }
+}
 .shot {
   display: flex;
   align-items: center;
@@ -727,6 +767,63 @@ body {
   color: var(--muted);
 }
 
+/* Sommaire des projets, collant dans la colonne d'étiquette. */
+.project-index {
+  display: none;
+}
+@media (min-width: 820px) {
+  [data-da="japon"] .section-side {
+    position: sticky;
+    top: 3rem;
+    align-self: start;
+  }
+  [data-da="japon"] .project-index {
+    display: block;
+    margin-top: 2.5rem;
+  }
+}
+.project-index ol {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 0.9rem;
+  border-left: 1px solid var(--line);
+  display: grid;
+  gap: 1.1rem;
+}
+.project-index a {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  transition: color 0.3s;
+}
+.project-index .jp {
+  font-family: var(--f-display);
+}
+.project-index small {
+  display: block;
+  font-size: 0.68rem;
+}
+.project-index a:hover,
+.project-index a[aria-current] {
+  color: var(--fg);
+}
+.project-index a[aria-current] .jp {
+  color: var(--accent);
+}
+.project-index a[aria-current]::before {
+  content: "";
+  position: absolute;
+  left: calc(-0.9rem - 1px);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--accent);
+}
+
 [data-da="japon"] .projects {
   margin-top: 0;
   gap: 0;
@@ -1139,6 +1236,59 @@ body {
   [data-da="brutal"] .projects {
     grid-template-columns: 1fr 1fr;
   }
+}
+@media (min-width: 1024px) {
+  [data-da="brutal"] #projets {
+    max-width: 80rem;
+  }
+}
+/* Chiffres clés au-dessus des cartes. */
+[data-da="brutal"] .figures {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.75rem 0 0;
+}
+@media (min-width: 768px) {
+  [data-da="brutal"] .figures {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+[data-da="brutal"] .figures div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  padding: 0.9rem 1.1rem;
+  color: var(--ink);
+  border: 3px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 6px 6px 0 var(--line);
+  font-family: var(--f-mono);
+  font-size: 0.8rem;
+  transform: rotate(-1deg);
+}
+[data-da="brutal"] .figures div:nth-child(even) {
+  transform: rotate(1deg);
+}
+[data-da="brutal"] .figures dd {
+  margin: 0 0 0.25rem;
+  font-family: var(--f-display);
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1;
+}
+[data-da="brutal"] .figures [data-color="sky"] {
+  background: var(--sky);
+}
+[data-da="brutal"] .figures [data-color="coral"] {
+  background: var(--coral);
+}
+[data-da="brutal"] .figures [data-color="lime"] {
+  background: var(--lime);
+}
+[data-da="brutal"] .figures [data-color="lilac"] {
+  background: var(--lilac);
 }
 [data-da="brutal"] .project {
   display: flex;

@@ -1,11 +1,21 @@
 import Image from "next/image";
-import { earlier, profile, projects, type Project } from "./data";
+import { earlier, earlierPeriod, profile, projects, type Project } from "./data";
 import { BrandMark } from "./brand-mark";
 import { ContactForm } from "./contact-form";
+import { ProjectIndex } from "./project-index";
 import { ThemeSwitcher } from "./theme-switcher";
 
 const totalCommits = projects.reduce((sum, p) => sum + p.commits, 0);
 const maxCommits = Math.max(...projects.map((p) => p.commits));
+// Technologies distinctes, sans numéro de version (« Next.js 16 » et « Next.js » comptent pour une).
+const techCount = new Set(projects.flatMap((p) => p.stack.map((s) => s.replace(/ v?\d+$/, ""))))
+  .size;
+const figures = [
+  { value: projects.length, label: "projets en ligne", color: "sky" },
+  { value: totalCommits, label: "commits", color: "coral" },
+  { value: techCount, label: "technos", color: "lime" },
+  { value: earlierPeriod.from, label: "premier dépôt", color: "lilac" },
+] as const;
 // Liens vers d'autres sites : nouvel onglet, sans accès de la page ouverte à celle-ci.
 const external = { target: "_blank", rel: "noopener noreferrer" } as const;
 
@@ -116,12 +126,30 @@ export default function Home() {
         </div>
 
         <section id="projets" className="section wrap">
-          <h2 className="section-label">
-            <span className="jp" aria-hidden>
-              作品
-            </span>
-            <span className="jp-sub">Projets choisis</span>
-          </h2>
+          <div className="section-side">
+            <h2 className="section-label">
+              <span className="jp" aria-hidden>
+                作品
+              </span>
+              <span className="jp-sub">Projets choisis</span>
+            </h2>
+            <ProjectIndex
+              items={projects.map(({ slug, kanji, name, period }) => ({
+                slug,
+                kanji,
+                name,
+                period,
+              }))}
+            />
+          </div>
+          <dl className="figures only-brutal">
+            {figures.map((f) => (
+              <div key={f.label} data-color={f.color}>
+                <dt>{f.label}</dt>
+                <dd>{f.value}</dd>
+              </div>
+            ))}
+          </dl>
           <div className="projects">
             {projects.map((p, i) => (
               <ProjectCard key={p.slug} project={p} index={i} />
@@ -134,7 +162,9 @@ export default function Home() {
             <span className="jp" aria-hidden>
               初期
             </span>
-            <span className="jp-sub">Premiers projets (2022 – 2023)</span>
+            <span className="jp-sub">
+              Premiers projets ({earlierPeriod.from} – {earlierPeriod.to})
+            </span>
           </h2>
           <ul className="early">
             {earlier.map((e) => (
@@ -192,7 +222,7 @@ export default function Home() {
 
 function ProjectCard({ project: p, index }: { project: Project; index: number }) {
   return (
-    <article className="project" data-color={p.color}>
+    <article id={p.slug} className="project" data-color={p.color}>
       {p.sticker && <span className="sticker only-brutal">{p.sticker}</span>}
       <div className="project-num" aria-hidden>
         {p.kanji}
@@ -203,7 +233,11 @@ function ProjectCard({ project: p, index }: { project: Project; index: number })
           alt={p.image.alt}
           width={p.image.width}
           height={p.image.height}
-          sizes="(min-width: 768px) 480px, 100vw"
+          sizes={
+            index === 0
+              ? "(min-width: 1024px) 720px, (min-width: 768px) 480px, 100vw"
+              : "(min-width: 1024px) 600px, (min-width: 768px) 480px, 100vw"
+          }
           priority={index === 0}
         />
       </div>
