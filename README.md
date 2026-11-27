@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Started
-
-First, run the development server:
+Site portfolio (Next.js 15, Tailwind v4). Tout le contenu est dans `app/data.ts`.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Thèmes
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Trois directions artistiques (Sobre, Japon minimal, Néo-brutaliste), chacune en clair et en sombre :
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `data-da` et `data-mode` sur `<html>` ; chaque token CSS est écrit avec `light-dark()` dans `app/globals.css`.
+- Un script dans `<head>` (`app/themes.ts`) pose le thème avant le premier rendu : pas de flash.
+- Le sélecteur (`app/theme-switcher.tsx`) mémorise le choix et anime le changement avec la View Transitions API (désactivé si mouvement réduit).
+- Lien direct vers un style : `?theme=japon` ou `?theme=brutal&mode=dark`.
 
-## Learn More
+## Formulaire de contact
 
-To learn more about Next.js, take a look at the following resources:
+`app/api/contact/route.ts` envoie les messages par e-mail via [Resend](https://resend.com) (validation, champ piège anti-robots, 5 messages / 10 min par IP).
+Copier `.env.example` en `.env.local` et renseigner `RESEND_API_KEY` (et la même variable sur Vercel). Sans clé, le formulaire affiche l'adresse e-mail en repli.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Les captures des projets sont dans `public/projects/`. Celle de Night Binder vient du mode démo de l'app (cartes fictives, aucun visuel officiel).
