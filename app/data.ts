@@ -25,6 +25,7 @@ export type Project = {
   tagline: string;
   summary: string;
   highlights: string[];
+  /** Technologies, sans numéro de version (« Next.js », pas « Next.js 16 »). */
   stack: string[];
   period: string;
   commits: number;
@@ -83,7 +84,7 @@ export const projects: Project[] = [
       "Tests Vitest + Playwright de bout en bout, Storybook, CI sur chaque push",
       "Versions sémantiques, notes de version bilingues, déploiement automatique sur tag",
     ],
-    stack: ["Next.js 16", "Prisma", "Turso", "Pusher", "shadcn/ui", "Playwright"],
+    stack: ["Next.js", "Prisma", "Turso", "Pusher", "shadcn/ui", "Playwright"],
     period: "2026",
     commits: 123,
     image: {
@@ -137,7 +138,7 @@ export const projects: Project[] = [
       "Moteur de validité des decks (formats, cartes bannies)",
       "Hors ligne d'abord : stockage local synchronisé, service worker, mode démo",
     ],
-    stack: ["Next.js 15", "Supabase", "Tailwind v4", "Vitest", "GitHub Actions"],
+    stack: ["Next.js", "Supabase", "Tailwind", "Vitest", "GitHub Actions"],
     period: "2026",
     commits: 45,
     image: {
@@ -163,7 +164,7 @@ export const projects: Project[] = [
       "Données TMDB générées au build et rafraîchies chaque jour (ISR)",
       "Migration Next.js 13 → 16, React 19 et Tailwind v4",
     ],
-    stack: ["Next.js 16", "React 19", "Tailwind v4", "TMDB API", "Playwright"],
+    stack: ["Next.js", "React", "Tailwind", "TMDB API", "Playwright"],
     period: "2023 – 2026",
     commits: 59,
     image: {
