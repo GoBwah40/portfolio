@@ -89,7 +89,7 @@ export const projects: Project[] = [
       "Authentification par session (Better Auth), stockage S3 avec repli local",
       "8 décisions d'architecture documentées (ADR), CI lint + types + tests + code mort",
     ],
-    stack: ["Next.js", "NestJS", "PostgreSQL", "Prisma", "next-intl", "Docker"],
+    stack: ["Next.js", "NestJS", "PostgreSQL", "Prisma", "next-intl", "Docker", "Claude Code"],
     period: "2026",
     commits: 289,
     image: {
@@ -143,7 +143,7 @@ export const projects: Project[] = [
       "Aléatoire seedé : une seed donne une partie rejouable à l'identique",
       "IA ennemie aux intentions pondérées, reliques, récompenses par rareté",
     ],
-    stack: ["TypeScript", "React", "Vite", "Vitest", "Tailwind"],
+    stack: ["TypeScript", "React", "Vite", "Vitest", "Tailwind", "Claude Code"],
     period: "2024 – 2026",
     commits: 59,
     image: {
