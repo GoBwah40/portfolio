@@ -9,6 +9,18 @@ updates:
       # Les mises à jour mineures et correctives arrivent dans une seule PR par semaine.
       mineures:
         update-types: [minor, patch]
+    ignore:
+      # @types/node suit la version de Node du runtime (engines.node, partagée par la CI et Vercel) :
+      # on change de majeure à la main, en même temps que engines.node.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+      # ESLint 10 : eslint-plugin-react, eslint-plugin-import et eslint-plugin-jsx-a11y
+      # (embarqués par eslint-config-next) ne le prennent pas encore en charge. À retirer quand ce sera le cas.
+      - dependency-name: "eslint"
+        update-types: ["version-update:semver-major"]
+      # TypeScript 7 : typescript-eslint exige typescript < 6.1. À retirer quand ce sera le cas.
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: github-actions
     directory: /
