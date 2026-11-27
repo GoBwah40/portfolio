@@ -7,9 +7,7 @@ import { ThemeSwitcher } from "./theme-switcher";
 
 const totalCommits = projects.reduce((sum, p) => sum + p.commits, 0);
 const maxCommits = Math.max(...projects.map((p) => p.commits));
-// Technologies distinctes, sans numéro de version (« Next.js 16 » et « Next.js » comptent pour une).
-const techCount = new Set(projects.flatMap((p) => p.stack.map((s) => s.replace(/ v?\d+$/, ""))))
-  .size;
+const techCount = new Set(projects.flatMap((p) => p.stack)).size;
 const figures = [
   { value: projects.length, label: "projets en ligne", color: "sky" },
   { value: totalCommits, label: "commits", color: "coral" },
