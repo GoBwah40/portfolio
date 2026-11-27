@@ -1856,7 +1856,7 @@ body {
 .about-when {
   font-family: var(--f-mono);
   font-size: 0.75rem;
-  color: var(--accent);
+  color: var(--accent-text, var(--accent));
 }
 .about-what {
   font-weight: 500;
