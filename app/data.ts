@@ -20,16 +20,16 @@ export const profile = {
 };
 
 // Bloc « Présentation ». Rédigé d'après les anciens CV en ligne (dépôts cv et cv_en_Ligne)
-// et les projets. Les valeurs entre crochets restent à compléter.
+// et les projets, complété par l'utilisateur (poste, ville, disponibilité).
 export const about = {
   paragraphs: [
     "Je viens du Pays basque, et mon chemin vers le code n'a pas été tout droit : économie, prépa infirmier, BTS Communication, hôtellerie. C'est en montant un site WordPress pendant un stage que j'ai découvert la programmation, et je ne l'ai plus lâchée.",
-    "J'ai commencé en autodidacte avec OpenClassrooms, puis je me suis formé au développement web et mobile à l'AFPA et au CEFIM. Aujourd'hui [poste] chez [entreprise], je continue à construire mes propres projets : une plateforme d'emploi au Japon, des jeux de cartes, des outils pour décider à plusieurs.",
+    "J'ai commencé en autodidacte avec OpenClassrooms, puis je me suis formé au développement web et mobile à l'AFPA et au CEFIM. Aujourd'hui développeur full-stack, je continue à construire mes propres projets : une plateforme d'emploi au Japon, des jeux de cartes, des outils pour décider à plusieurs.",
     "Passionné de culture japonaise depuis l'adolescence, je pratique aussi le bodyboard, la pala et l'escalade. Ce qui me guide en développement : des interfaces soignées et accessibles, du code testé qui se laisse maintenir, et des produits qui rendent vraiment service.",
   ],
   facts: [
-    { label: "Basé à", value: "[Ville], France" },
-    { label: "Disponibilité", value: "[CDI, freelance…]" },
+    { label: "Basé à", value: "Tarnos, Landes" },
+    { label: "Disponible", value: "En fin de journée et le week-end" },
     { label: "Langues", value: "Français, anglais" },
     { label: "Spécialité", value: "TypeScript, Next.js, NestJS" },
   ],
@@ -37,12 +37,12 @@ export const about = {
     { when: "2017 – 2018", what: "BTS Communication, premier site WordPress", where: "Bayonne" },
     { when: "2020", what: "Autodidacte : HTML, CSS, JavaScript", where: "OpenClassrooms" },
     { when: "2022", what: "Formation développeur web et mobile", where: "AFPA, CEFIM" },
-    { when: "[année]", what: "[Poste actuel]", where: "[Entreprise]" },
     {
       when: "2024 – 2026",
       what: "Projets perso : jeux, apps web, plateforme d'emploi",
       where: "Indépendant",
     },
+    { when: "Aujourd'hui", what: "Développeur full-stack" },
   ],
 };
 

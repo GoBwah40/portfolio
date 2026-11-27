@@ -159,7 +159,7 @@ export default function Home() {
                     <li key={t.what}>
                       <span className="about-when">{t.when}</span>
                       <span className="about-what">{t.what}</span>
-                      <span className="about-where">{t.where}</span>
+                      {t.where && <span className="about-where">{t.where}</span>}
                     </li>
                   ))}
                 </ol>
