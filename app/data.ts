@@ -184,7 +184,6 @@ export const earlierPeriod = { from: 2022, to: 2023 };
 export const earlier = [
   { name: "CV en ligne", stack: "HTML, CSS, JS" },
   { name: "Projet CEFIM", stack: "Site vitrine" },
-  { name: "Ma Ghibli liste", stack: "JS, API" },
   { name: "Pomodoro", stack: "Kotlin, Android" },
   { name: "MemoApp", stack: "Java" },
 ];
