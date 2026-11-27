@@ -26,7 +26,10 @@ function rateLimited(ip: string) {
 }
 
 const escapeHtml = (s: string) =>
-  s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+  s.replace(
+    /[&<>"']/g,
+    (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!,
+  );
 
 export async function POST(req: Request) {
   let body: Record<string, unknown>;
@@ -45,9 +48,12 @@ export async function POST(req: Request) {
   const email = String(body.email ?? "").trim();
   const message = String(body.message ?? "").trim();
   if (
-    !name || name.length > LIMITS.name ||
-    !EMAIL_RE.test(email) || email.length > LIMITS.email ||
-    message.length < 10 || message.length > LIMITS.message
+    !name ||
+    name.length > LIMITS.name ||
+    !EMAIL_RE.test(email) ||
+    email.length > LIMITS.email ||
+    message.length < 10 ||
+    message.length > LIMITS.message
   ) {
     return NextResponse.json({ error: "invalid" }, { status: 400 });
   }

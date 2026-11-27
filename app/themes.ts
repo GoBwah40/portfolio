@@ -1,7 +1,22 @@
 export const DAS = [
-  { id: "sobre", label: "Sobre", hint: "Clair et chaleureux", swatch: ["#f7f5f1", "#17161a", "#d24b2a"] },
-  { id: "japon", label: "Japon minimal", hint: "Washi, encre et rouge", swatch: ["#f6f2ea", "#1d1c1a", "#c8372d"] },
-  { id: "brutal", label: "Néo-brutaliste", hint: "Couleurs franches", swatch: ["#fff4d6", "#7ad3ff", "#ff6b4a"] },
+  {
+    id: "sobre",
+    label: "Sobre",
+    hint: "Clair et chaleureux",
+    swatch: ["#f7f5f1", "#17161a", "#d24b2a"],
+  },
+  {
+    id: "japon",
+    label: "Japon minimal",
+    hint: "Washi, encre et rouge",
+    swatch: ["#f6f2ea", "#1d1c1a", "#c8372d"],
+  },
+  {
+    id: "brutal",
+    label: "Néo-brutaliste",
+    hint: "Couleurs franches",
+    swatch: ["#fff4d6", "#7ad3ff", "#ff6b4a"],
+  },
 ] as const;
 
 export const MODES = [
